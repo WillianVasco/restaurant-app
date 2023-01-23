@@ -1,0 +1,181 @@
+body {
+    margin: 0 auto;
+    width: 600px;
+    font-family: 'Smythe', cursive;
+    border: 2px solid black;
+}
+
+img {
+    width: 600px;
+    height: 200px;
+    margin: 0 auto;
+    display: block;
+}
+
+.logo{
+    position: relative;
+}
+
+.text-logo {
+    color: whitesmoke;
+    position: absolute;
+    top: 15px;
+    right: 20px;   
+}
+
+.text-logo h1, h3 {
+    margin: 0;
+}
+
+.resume {
+    display: none;
+    flex-direction: column;
+}
+
+.menu {
+    display: flex;
+    margin: 0 0;
+    align-items: center;
+}
+
+.items {
+    margin: 0px 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+}
+
+.items button {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 1px solid lightgray;
+    background-color: white;
+    font-size: 35px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
+    margin: auto 20px auto 0;
+}
+
+.items button:hover {
+    background-color: darksalmon;
+    color: white;
+}
+
+#food-emoji {
+   font-size: 50px;
+   width: 50px;
+   align-self: center;
+   margin-right: 20px;
+}
+
+.menu {
+    margin: 0px 10px;
+    border-bottom: 1px solid lightgray;
+    height: 120px;
+}
+
+.food-data {
+    align-self: center;
+    margin: 0px 10px 0px 0px;
+}
+
+.food-data p {
+   margin: 2px;
+   font-size: 20px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.quantity {
+    height: 30px;
+    margin: auto 10px auto auto;
+    text-align: center;
+    font-size: 20px;
+    border: 1px solid lightgrey;
+    border-radius: 1%;
+    font-weight: bold;
+}
+
+#order-title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+.order-header-list li{
+    display: inline;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0 15px 10px 15px;    
+}
+
+#order-header-list-item{
+    margin-right: 320px;
+}
+
+span{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.items-grid{
+    display: flex;
+    flex-direction: row;
+    margin: 0 47px;
+    max-width: 500px;
+    width: 500px;
+    padding: 5px;
+}
+
+.item-grid-name{
+    width: 300px;
+    padding-left: 2px;
+}
+
+.remove-item{
+    color: grey;
+    border: none;
+    background-color: white;
+}
+
+.remove-item:hover{
+    font-weight: bold;
+}
+
+.item-grid-qty{
+    width: 110px;
+    text-align: center;
+}
+
+.item-grid-total{
+    width: 50px;
+    text-align: center;
+}
+
+.total-price{
+    border-top: 1px solid black;
+    width: 500px;
+    margin: 10px auto;
+    padding: 10px;
+}
+
+#order-price{
+    margin-left: 407px;
+}
+
+.finish-order-btn{
+    width: 500px;
+    margin: 10px auto 20px auto;
+    background-color: #16DB99;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    color: whitesmoke;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 0;
+}

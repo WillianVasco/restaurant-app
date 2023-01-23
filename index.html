@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="stylesheet" href="index.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap" rel="stylesheet">
+        <script src="index.js" defer type="module"></script>
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <img src="images/burger.jpg" alt="A burger">
+                <div class="text-logo">
+                    <h1>Bill's Restaurant</h1>
+                    <h3>The best place to eat healthily 😅</h3>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="items" id="items"></div>
+            <div class="resume" id="resume">
+                <div>
+                    <p id="order-title">Your Order</p>
+                </div>
+                <div class="order-header">
+                    <ul class="order-header-list">
+                        <li id="order-header-list-item">Item</li>
+                        <li id="order-header-list-qty">Quantity</li>
+                        <li id="order-header-list-price">Price</li>
+                    </ul>
+                </div>                
+                <div class="items-order" id="items-order"></div>
+                <div class="total-price">
+                    <span>Total Price:</span>
+                    <span id="order-price">0</span>
+                </div>
+                <button type="button" name="finish-order" class="finish-order-btn">Complete Order</button>
+            </div>
+        </main>
+    </body>
+</html>
+
