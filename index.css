@@ -157,6 +157,7 @@ span{
 }
 
 .total-price{
+    display: flex;
     border-top: 1px solid black;
     width: 500px;
     margin: 10px auto;
@@ -164,7 +165,7 @@ span{
 }
 
 #order-price{
-    margin-left: 407px;
+    margin-left: 10px;
 }
 
 .finish-order-btn{
@@ -178,4 +179,15 @@ span{
     border: none;
     border-radius: 3px;
     padding: 10px 0;
+}
+
+.total-price-tag{
+    width: 80px;
+    padding-left: 2px;
+}
+
+.order-price{
+    width: 500px;
+    max-width: 500px;
+    padding-right: 5px;
 }

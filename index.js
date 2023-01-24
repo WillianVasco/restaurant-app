@@ -14,7 +14,7 @@ document.addEventListener('click', function(e){
 //call a function to initialize the menu
 render()
 
-//quantity input by user control
+//user's quantity input control
 const quantityBtn = document.getElementsByClassName('quantity')
 for (let i=0; i < quantityBtn.length; i++) {
     quantityBtn[i].oninput = function(){
@@ -68,10 +68,25 @@ function addItemCart(newItem){
             function findIndexItem(item){
                 return item.id === newItem.id
             }
-            order[index].quantity = quantityOfItem.value
+            order[index].quantity = parseInt(quantityOfItem.value)
         }
     })
     renderOrder()
+}
+
+//update the quantity of the element and recalls renderOrder
+function updateItemCart(updateItem){
+    order.forEach(function(addedNewItem){
+        if (addedNewItem.id === updateItem.id){
+            const quantityOfItem = document.querySelector(`#menu-${updateItem.id}`)                  
+            const index = order.findIndex(findIndexItem)
+            function findIndexItem(item){
+                return item.id === updateItem.id
+            }
+            order[index].quantity += parseInt(quantityOfItem.value)
+        }
+    })
+    renderOrder()    
 }
 
 //return the id on data
@@ -79,12 +94,21 @@ function handleItemMenuClick(itemId){
     const targetItemObj = menuArray.filter(function(chosenMenu){
         return chosenMenu.id === parseInt(itemId)
     })[0]
-    addItemCart(targetItemObj)
+    const index = order.findIndex(findIndexItem)
+    function findIndexItem(item){
+        return item.id === targetItemObj.id
+    }
+    if (index === -1){
+        addItemCart(targetItemObj)
+    } else {
+        updateItemCart(targetItemObj)
+    }
 }
 
 //renders the order array in the html
 function renderOrder(){
     document.getElementById('items-order').innerHTML = getOrder()
+    calcTotalPrice()
 }
 
 //read and returns a html of the order
@@ -109,4 +133,35 @@ function getOrder(){
         `
     })
     return feedOrder
+}
+
+//get the click of the remove button
+document.addEventListener('click', function(e){
+    if (e.target.dataset.remove){
+        handleItemRemoveClick(e.target.dataset.remove)
+    }
+})
+
+function handleItemRemoveClick(itemId){
+    const targetItemObj = order.filter(function(removeItem){
+        return removeItem.id === parseInt(itemId)
+    })[0]
+    const index = order.findIndex(findIndexItem)
+    function findIndexItem(item){
+        return item.id === targetItemObj.id
+    }
+    order.splice(index,1)
+    renderOrder()
+}
+
+function calcTotalPrice(){
+    const totalPriceEl = document.getElementById('order-price')
+    let i = 0
+    order.forEach(function(itemsOfOrder){
+        i += parseInt(itemsOfOrder.quantity * itemsOfOrder.price)
+    })
+    totalPriceEl.innerText = "$ " + i
+    if (i === 0) {
+        resumeCart.style.display = 'none'
+    }
 }
