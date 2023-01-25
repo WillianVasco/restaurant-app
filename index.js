@@ -2,12 +2,17 @@ import {menuArray} from './data.js'
 
 const itemsMenu = document.getElementById('items')
 const resumeCart = document.getElementById('resume')
+const completeBtn = document.getElementById('finish-order-btn')
+const paymentContainer = document.getElementById('payment-container')
+const confirmPayment = document.getElementById('payment-btn')
+const thanksMessage = document.getElementById('thanks-message')
 const order = []
 
 //get the click and invoke function to identify it in menuArray
 document.addEventListener('click', function(e){
     if (e.target.dataset.item){
         handleItemMenuClick(e.target.dataset.item)
+        thanksMessage.style.display = 'none'
     }
 })
 
@@ -18,6 +23,17 @@ render()
 const quantityBtn = document.getElementsByClassName('quantity')
 for (let i=0; i < quantityBtn.length; i++) {
     quantityBtn[i].oninput = function(){
+        const max = parseInt(this.max);
+        if (parseInt(this.value) > max) {
+        this.value = max;
+        }
+    }
+}
+
+const inputField = document.getElementsByClassName('payment-input')
+console.log(inputField)
+for (let i=0; i < inputField.length; i++) {
+    inputField[i].oninput = function(){
         const max = parseInt(this.max);
         if (parseInt(this.value) > max) {
         this.value = max;
@@ -142,6 +158,7 @@ document.addEventListener('click', function(e){
     }
 })
 
+//get the id of button and remove the item
 function handleItemRemoveClick(itemId){
     const targetItemObj = order.filter(function(removeItem){
         return removeItem.id === parseInt(itemId)
@@ -154,6 +171,7 @@ function handleItemRemoveClick(itemId){
     renderOrder()
 }
 
+//calculates order's total price
 function calcTotalPrice(){
     const totalPriceEl = document.getElementById('order-price')
     let i = 0
@@ -164,4 +182,26 @@ function calcTotalPrice(){
     if (i === 0) {
         resumeCart.style.display = 'none'
     }
+}
+
+completeBtn.addEventListener('click', function(){
+    paymentContainer.style.display = 'block'
+})
+
+confirmPayment.addEventListener('click', function(){
+    paymentContainer.style.display = 'none'
+    resumeCart.style.display = 'none'
+    thanksMessage.style.display = 'block'
+    document.getElementById('message').innerHTML = getName()
+    order.length = 0
+})
+
+function getName() {
+    let purchaserName = ""
+    let textMessage = ``
+    purchaserName = document.getElementById('purchaser-name').value
+    textMessage = `
+        <p>Thanks, ${purchaserName}! Your Order is on its way!</p>
+    `
+    return textMessage
 }

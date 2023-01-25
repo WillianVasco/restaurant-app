@@ -43,9 +43,24 @@
                         <span id="order-price">0</span>
                     </div>
                 </div>
-                <button type="button" name="finish-order" class="finish-order-btn">Complete Order</button>
+                <button type="button" name="finish-order" class="finish-order-btn" id="finish-order-btn">Complete Order</button>
+            </div>
+        </main>
+        <main>
+            <div class="payment-container" id="payment-container">
+                <p class="payment-title">Enter Card Details</p>
+                <form>
+                    <input type="text" required placeholder="Enter Your Name" name="purchaser-name" id="purchaser-name" class="payment-input" maxlength="40">
+                    <input type="number" required placeholder="Enter Card Number" name="card-number" id="card-number" class="payment-input" maxlength="16">
+                    <input type="number" required placeholder="CVV" name="cvv-number" id="cvv-number" class="payment-input" maxlength="3">
+                </form>
+                <button type="button" class="payment-btn" id="payment-btn">Pay</button>
+            </div>
+        </main>
+        <main>
+            <div class="thanks-message" id="thanks-message">
+                <div id="message"></div>
             </div>
         </main>
     </body>
 </html>
-
