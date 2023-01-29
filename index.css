@@ -208,6 +208,19 @@ span{
     background-color: whitesmoke;
 }
 
+.thanks-message {
+    display: none;
+    position: fixed;
+    width: 504px;
+    height: 120px;
+    background-color: #ECFDF5;
+    border-radius: 3px;
+    top: 600px;
+    left: 590px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .payment-title{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-style: normal;
@@ -247,17 +260,6 @@ span{
     border-radius: 3.9px;
 }
 
-.thanks-message {
-    display: none;
-    position: fixed;
-    width: 504px;
-    height: 120px;
-    background-color: #ECFDF5;
-    border-radius: 3px;
-    top: 600px;
-    left: 590px;
-}
-
 #message p {
     color: #065F46;
     font-size: 25px;
@@ -274,8 +276,8 @@ span{
     outline: none;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+form input::-webkit-outer-spin-button,
+form input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
